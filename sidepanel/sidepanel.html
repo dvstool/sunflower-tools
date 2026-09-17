@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sunflower Tools</title>
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="brand">
+          <img class="brand-icon" alt="Sunflower Tools" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAABelBMVEVjx02XgDx5qEZev1Vcu1ppr1KKkUHalT2skz9/oURXs2FfoGKLiEzQcCvOVyz/+U7PZCu/iDfXgyn9zyD4hCL+7Uj6sTL7qiDvuSO6azFrskxxvVGPdEj/3h/8wCD9yCC+Si+Dc0abNECTSUKa7omB62uejkL5jin+1iBzPjnAfCv3diKLXkTOWWH2dXrjrkH540n91z2GTjaxXDTuVVyhakDqwjGugDXWTFS9PUfixMhQZ1lXp0toOTu1i5S+V2HTp63///+9vMBihWrCmj+dVjHNiC4mK0TR1NvGi5KbmqGbbTiSQjVbYHXt8PSDhpRBbkjg5e36oiGoRjJaV2M5NkRRrGlwkFlBRlyQlaQ4WEdHikZQgEXHYzRjnkfk0aHu045ZtUxSVz1gc0FLkkcxcEX9zn/8u0s7g0gmXEItaUQxT052e4zwmmnyc0Njf3A4fEfxvcHzlppstm906FvChWmchmCLqlphW0FiRTxpZmxSRkE1VEVFTkLN7pTfAAACHklEQVR4AbxNswEDAQDM27Zte//JYqPNdefdHwEAALj7AQhGUBTDMBwlvvskRTMsx3EYL3wdOfqiJCucomq6YR4FyzTNl4AtOo6jOa7nOJJ/FIIwjJ78OEnZLNeKoihdtzoG6qZt2/DJB7p+UMdjYCzdvp+ikz/P0e0lIZeOU9bihK3nOD88lEkXiq3CYBSAuS5zd3d3r6UTZCOjLqHr6HCZu7z7QtL5qcL5sB9WF3HW1jcCZfHTB60UzNXUBEPhtbW1qQiIbr6I31szra1tuN/e6W6dYbkIz/MRAIDwKr7Vtox2L+0u7fT0jOyJELxkXyqDyp2Grobmpu7u0dFlFgAIAYx9AD8rqxom8CSb460JDJICiKbeg//pdKa31x91714WgBgB/i5gLv8CkCwXCoXfBxIGoHh4WPT7V/AjEFAUpXRUklUtCwHQDUMnfawMGNUMBBjLtG3NclwIi96xB/1eOFEpQBpCAc20TxEypRwHz87PIHzXM+qpH9MmyywH6P5j+6+DGrywbcsyJR8o2RggiWEhKXjNJb6fP9IdV5Z5fYN7lvYEkJPE4PJnBULpq6urG0ZlCaC9mItFHTwF8tSm0x0dHQy6rWNjRHDZmMhmsxsKLuksyI98N1IncjEIo/d14srDoxxgPkYtzY+wLo6YGtkeubNU5RMInOZXHkny2xMLJQ2pn4CionJMZ/wJ9wHmiyCERqX957wBegLPF8afAf2inikAAAAASUVORK5CYII=" />
+          <div class="brand-meta">
+            <h1>Sunflower Tools</h1>
+            <p class="code-release" id="code-release" title="Thời điểm phát hành phiên bản hiện tại">--/--/---- · --:--</p>
+          </div>
+          <div class="header-actions">
+            <span id="header-farm-badge" style="font-size:11px;font-weight:700;color:#facc15;background:rgba(15,23,42,0.6);border:1px solid #334155;padding:3px 7px;border-radius:4px;cursor:pointer;" title="Bấm để nhập hoặc đổi địa chỉ ví Web3">Ví: Chưa nhận</span>
+            <p class="connection is-disconnected" id="connection-status"><span></span> Chưa kết nối Sunflower Land</p>
+            <button class="reload-extension-button" id="reload-extension" type="button" title="Nạp lại extension" aria-label="Nạp lại extension"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/></svg></button>
+          </div>
+        </div>
+      </header>
+
+      <main class="extension-content" id="extension-content" aria-label="Extension content">
+        <section class="connection-empty-state" id="disconnected-content">
+          <div><span class="connection-empty-icon" aria-hidden="true">🌻</span><h2>Kết nối Sunflower Land</h2><p>Mở game rồi kết nối để dùng các công cụ.</p><button class="connect-button" id="connect-button" type="button">Kết nối</button></div>
+        </section>
+        <div id="connected-content" hidden>
+        <div class="license-user-tier" id="license-user-tier" data-tier="basic" hidden><strong class="license-user-tier-name">Basic User</strong><div class="license-user-details" id="license-user-details"></div></div>
+        <section class="tool-tab-panel" id="map-panel" data-tool-panel="map">
+          <div class="map-sticky-controls">
+            <div class="map-scan-card"><div class="test-actions"><button class="scan-map-button" id="scan-map" type="button" title="Quét Map" aria-label="Quét Map"><span class="scan-icon" aria-hidden="true"><img class="scan-icon-static" src="https://cdn-icons-png.flaticon.com/512/159/159061.png" alt="" /><img class="scan-icon-loading" src="https://assets-v2.lottiefiles.com/a/2e38d784-116e-11ee-95a0-ff83a71694af/KTpQk2gMhQ.gif" alt="" /></span><span>Map</span></button></div><button id="scan-fertilisers" type="button" hidden aria-hidden="true" tabindex="-1"></button></div>
+            <div class="map-summary">
+              <div class="land-info" id="land-info" aria-live="polite">Đang đọc thông tin land…</div>
+            </div>
+          </div>
+          <section class="map-tools">
+            <div class="map-activity-content" id="map-activity-content">
+              <div class="activity-results" id="ready-results"><div class="tree-results" id="overview-results"><div class="empty-state" data-activity="overview">Chưa quét map.</div></div><div class="crop-results" id="crop-results"><div class="empty-state">Chưa quét map.</div></div><div class="tree-results" id="tree-results"></div><div class="tree-results" id="mining-results"></div></div>
+              <div class="activity-results activity-results-growing" id="growing-results"><div class="crop-results" id="crop-growing-results"></div><div class="tree-results" id="tree-growing-results"></div><div class="tree-results" id="mining-growing-results"></div></div>
+              <section class="activity-group cheer-tab-content" data-activity="cheer" hidden><div class="cheer-results" id="cheer-results"><div class="empty-state">Mở tab Cheer để xem Following.</div></div></section>
+              <div class="activity-results activity-results-blocked" id="blocked-results"></div>
+            </div>
+          </section>
+        </section>
+        <section class="tool-tab-panel settings-panel" data-tool-panel="settings" hidden>
+          <div class="settings-header"><h2>Cài đặt</h2></div>
+          <label class="settings-toggle"><span><b>Thông báo sẵn sàng</b><small>Báo khi tiến trình đếm ngược hoàn tất. Bật lên để nhận thông báo thử.</small><small id="notification-status" class="notification-status"></small></span><input id="ready-notifications" type="checkbox" role="switch" /><i aria-hidden="true"></i></label>
+          <label class="settings-toggle"><span><b>Chấm tròn khi hover</b><small>Hiển thị các chấm tròn trên map khi rê chuột qua card có vị trí tương ứng.</small></span><input id="map-hover-highlights" type="checkbox" role="switch" /><i aria-hidden="true"></i></label>
+          <section class="settings-license-upgrade" aria-labelledby="license-upgrade-title">
+            <div class="settings-tab-order-heading"><span><b id="license-upgrade-title">N&#226;ng c&#7845;p g&#243;i</b><small>Nh&#7853;p key Silver ho&#7863;c Gold &#273;&#7875; thay th&#7871; key hi&#7879;n t&#7841;i.</small></span></div>
+            <form id="license-upgrade-form" class="license-upgrade-form">
+              <label for="license-upgrade-key">Key n&#226;ng c&#7845;p</label>
+              <input id="license-upgrade-key" autocomplete="off" spellcheck="false" placeholder="SFT-XXXX-XXXX-XX" />
+              <button type="submit">X&#225;c nh&#7853;n n&#226;ng c&#7845;p</button>
+              <small id="license-upgrade-message" aria-live="polite"></small>
+            </form>
+          </section>
+        </section>
+        <section class="tool-tab-panel activity-log-panel" data-tool-panel="log" hidden>
+          <div class="settings-header"><h2>Logs</h2></div>
+          <div class="activity-log-body"><span>Hoạt động mới nhất</span><div class="panel-log" id="panel-log" aria-live="polite"></div></div>
+        </section>
+        <div class="seed-picker-modal" id="seed-picker-modal" hidden>
+          <div class="seed-picker-backdrop" data-ui-action="close-seed-picker" aria-hidden="true"></div>
+          <section class="seed-picker-dialog" role="dialog" aria-modal="true" aria-labelledby="seed-picker-title">
+            <div class="seed-picker-heading"><strong id="seed-picker-title">Choose seed</strong><div class="seed-picker-heading-actions"><button class="seed-picker-refresh-btn" type="button" data-ui-action="refresh-seed-counts" title="Refresh counts from Betty"><div class="card-loading-spinner" style="width:13px;height:13px;border-width:2px;flex-shrink:0;"></div></button><button type="button" data-ui-action="close-seed-picker" aria-label="Close" title="Close">&times;</button></div></div>
+            <div class="seed-picker-results" id="seed-picker-results"><div class="empty-state">Đang đọc hạt trong Betty…</div></div>
+          </section>
+        </div>
+        </div>
+      </main>
+      <nav class="map-activity-tabs bottom-map-activity-tabs" role="tablist" aria-label="Điều hướng chính">
+        <button class="map-activity-tab is-active" type="button" role="tab" aria-selected="true" aria-label="Home" title="Home" data-bottom-nav-id="home" data-map-activity-tab="overview">
+          <svg class="map-tab-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" /></svg><span class="map-tab-label">Home</span>
+        </button>
+        <button class="map-activity-tab" type="button" role="tab" aria-selected="false" aria-label="Cheer" title="Cheer" data-bottom-nav-id="cheer" data-map-activity-tab="cheer">
+          <svg class="map-tab-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 3.2c3.3 1 5.6 3.3 6.6 6.6l-4.6 2.6-4.6-4.6zM11.1 11.5l-6.7 2.8 4.6 1.7 1.7 4.6 2.8-6.7 2.4-2.4-2.4-2.4zM5.1 19.5l-1.6 1.6M4.6 16.3l-2.1.1M7.7 19.4l-.1 2.1" /></svg><span class="map-tab-label">Cheer</span>
+        </button>
+        <button class="map-activity-tab bottom-log-tab" id="open-log" data-bottom-nav-id="log" type="button" aria-pressed="false" aria-label="Logs" title="Logs">
+          <svg class="map-tab-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h11l3 3V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-14.5a1 1 0 0 1 1-1z" /><path d="M16 4.5V8h3M8 12h8M8 16h6" /></svg><span class="map-tab-label">Logs</span>
+        </button>
+        <button class="map-activity-tab bottom-settings-tab" id="open-settings" data-bottom-nav-id="settings" type="button" aria-pressed="false" aria-label="Cài đặt" title="Cài đặt">
+          <svg class="map-tab-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><span class="map-tab-label">Settings</span>
+        </button>
+      </nav>
+    </div>
+    <!-- Shared helpers and feature renderers load before the app coordinator. -->
+    <script src="core/language.js"></script>
+    <script src="core/ui-utils.js"></script>
+    <script src="core/connection.js"></script>
+    <script src="sidepanel.js"></script>
+    <script src="features/schedulers/ready-notifications.js"></script>
+    <script src="features/schedulers/pet-scheduler.js"></script>
+    <script src="features/state/composter-state.js"></script>
+    <script src="features/state/resource-state.js"></script>
+    <script src="features/state/tree-state.js"></script>
+    <script src="features/schedulers/countdown-controller.js"></script>
+    <script src="features/state/profession-scan-state.js"></script>
+    <script src="features/navigation/tabs.js"></script>
+    <script src="features/navigation/ui-click-feedback.js"></script>
+    <script src="features/actions/connection-actions.js"></script>
+    <script src="features/state/seed-catalog.js"></script>
+    <script src="features/actions/seed-selector.js"></script>
+    <script src="features/scanners/inventory-scanner.js"></script>
+    <script src="features/scanners/map-scanner.js"></script>
+    <script src="features/cards/crop-cards.js"></script>
+    <script src="features/cards/resource-cards.js"></script>
+    <script src="features/cards/fruit-cards.js"></script>
+    <script src="features/renderers/map-renderers.js"></script>
+    <script src="features/renderers/overview-renderer.js"></script>
+    <script src="features/scanners/map-dom-scanner.js"></script>
+    <script src="features/actions/resource-actions.js"></script>
+    <script src="features/actions/tool-inventory.js"></script>
+    <script src="features/actions/crop-harvest-actions.js"></script>
+    <script src="features/auto/auto-crop.js"></script>
+    <script src="features/actions/farm-actions.js"></script>
+    <script src="features/actions/overview-actions.js"></script>
+    <script src="features/actions/map-card-highlight.js"></script>
+    <script src="features/actions/cheer-actions.js"></script>
+    <script src="features/license/feature-gate.js"></script>
+    <script type="module" src="bootstrap.js"></script>
+  </body>
+</html>
